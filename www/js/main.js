@@ -35,14 +35,26 @@ function deferImagesLoad(container, callBack){
 
         console.log('js running');
 
+        function appendMsg(type, msg){
+
+            $('.c-chat-box').append('<div class="c-msg c-msg--'+type+'">'+msg+'</div>');
+
+            var $target = $('.c-chat-box'); 
+            $target.animate({scrollTop: $target.prop("scrollHeight")}, 100);
+        }
+
         var socket = io.connect('/rtc');
             socket.on('msg', function (data) {
                 console.log('received', data);
+
+                appendMsg('received', data.data);
             });
 
         $('#sendMessage').click(function(){
             var value = $('#chatMessage').val();
             socket.emit('emit', { data: value });
+
+            appendMsg('send', value);
         });
 
     });

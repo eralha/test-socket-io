@@ -27,9 +27,45 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	  <!-- END BOOTSTRAP -->
 
+	<style type="text/css">
+		.c-chat-box {
+			width: 100%;
+			height: 200px;
+			padding-top: 10px;
+			border: 1px solid #ccc;
+    		border-radius: 4px;
+    		overflow: hidden;
+		}
+		.c-msg {
+			clear: both;
+			float: left;
+			padding: 5px;
+			margin: 0 10px;
+			margin-bottom: 10px;
+			color: #fff;
+			background-color: #337ab7;
+		}
+		.c-msg--received {
+			float: right;
+			color: #000;
+			background-color: #ccc; 
+		}
+	</style>
+
 </head>
 <body>
 
+	<div class="row" style="padding:30px;">
+		<div class="col-md-12">
+			
+			<div class="c-chat-box">
+				<div class="c-msg c-msg--send">Olá</div>
+				<div class="c-msg c-msg--received">Olá</div>
+				<div class="c-msg c-msg--send">Olá Lorem ipsum dolor sit amet, consectetur.</div>
+			</div>
+
+		</div>
+	</div>
 
 	<div class="row" style="padding:30px;">
 	  <div class="col-md-6">
