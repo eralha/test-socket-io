@@ -43,6 +43,17 @@ function deferImagesLoad(container, callBack){
             $target.animate({scrollTop: $target.prop("scrollHeight")}, 100);
         }
 
+        function sendMsg(){
+            var value = $('#chatMessage').val();
+
+            //cclear field
+            $('#chatMessage').val('')
+
+            socket.emit('emit', { data: value });
+
+            appendMsg('send', value);
+        }
+
         var socket = io.connect('/rtc');
             socket.on('msg', function (data) {
                 console.log('received', data);
@@ -51,10 +62,13 @@ function deferImagesLoad(container, callBack){
             });
 
         $('#sendMessage').click(function(){
-            var value = $('#chatMessage').val();
-            socket.emit('emit', { data: value });
+            sendMsg();
+        });
 
-            appendMsg('send', value);
+        $(document).keypress(function(e) {
+            if(e.which == 13) {
+                sendMsg();
+            }
         });
 
     });
