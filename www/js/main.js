@@ -35,7 +35,7 @@ function deferImagesLoad(container, callBack){
 
         console.log('js running');
 
-        var socket = io.connect('http://localhost/rtc');
+        var socket = io.connect('/rtc');
             socket.on('msg', function (data) {
                 console.log('received', data);
             });
