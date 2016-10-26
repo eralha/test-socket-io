@@ -1,16 +1,21 @@
 var express = require('express');
 var port = process.env.PORT || 8080;
 var app = express();
-var server = require('http').Server(app);
+var server = require('http');
 var path = require('path');
 
-var socket = require('./socket')(server);
+app.server = server.createServer(app);
+
+var socket = require('./socket')(app.server);
 
 app.get('/', function(request, response) {
     response.sendFile(path.resolve(__dirname + '/../www/index.html'));
-}).listen(port, function () {
-  console.log('Example app listening on port '+port);
 });
 
 app.use('/js', express.static(__dirname + '/../www/js'));
 app.use('/images', express.static(__dirname + '/../www/images'));
+
+app.server.listen(port, function () {
+  console.log('Example app listening on port '+port);
+});
+
