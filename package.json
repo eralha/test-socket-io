@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "scripts": {
     "postinstall": "grunt default",
-    "start": "node server/bin.js"
+    "start": "node bin.js"
   },
   "dependencies": {
     "express": "*",
