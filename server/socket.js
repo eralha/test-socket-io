@@ -1,7 +1,7 @@
 module.exports = function (server) {
 
 	var io = require('socket.io')(server);
-		server.listen(process.env.PORT || 80);
+		server.listen();
 
 
 	var rtc = io.of('/rtc').on('connection', function (socket) {
