@@ -25,6 +25,7 @@ module.exports = function (server) {
 
 		  socket.on('emitRoom', function (data) {
 		  	//console.log(data, rtc.adapter.rooms);
+		  	console.log('room emit', data);
 		  	data.id = socket.client.id;
 		  	rtc.to(data.room).emit('msg', data);
 		  });
