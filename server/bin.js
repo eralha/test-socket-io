@@ -12,6 +12,10 @@ app.get('/', function(request, response) {
     response.sendFile(path.resolve(__dirname + '/../www/index.html'));
 });
 
+app.get('/app-auth/', function(request, response) {
+    response.sendFile(path.resolve(__dirname + '/../www/auth.json'));
+});
+
 app.use('/js', express.static(__dirname + '/../www/js'));
 app.use('/images', express.static(__dirname + '/../www/images'));
 
